@@ -1,0 +1,16 @@
+﻿<Window x:Class="WpfApp1.PassPhraseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ввод парольной фразы" Height="200" Width="350" WindowStartupLocation="CenterOwner">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="59.24"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Введите парольную фразу для расшифровки данных:" Margin="0,0,0,40"/>
+        <PasswordBox x:Name="PasswordPhraseBox" Margin="0,29,0,10" FontSize="16"/>
+        <Button Content="Ок" Click="OkButton_Click" Margin="10,71,200,-35"/>
+        <Button Content="Отмена" Click="CancelButton_Click" Margin="200,71,10,-35"/>
+
+    </Grid>
+</Window>

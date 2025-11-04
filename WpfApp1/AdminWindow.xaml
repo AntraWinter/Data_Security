@@ -1,0 +1,62 @@
+﻿<!--<Window x:Class="WpfApp1.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800">
+    <Grid>
+        --><!-- Верхнее меню --><!--
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="Пользователи">
+                <MenuItem Header="Смена пароля" />
+                <MenuItem Header="Новый пользователь" />
+                <MenuItem Header="Все пользователи" />
+                <Separator />
+                --><!-- Разделитель --><!--
+                <MenuItem Header="Выход" />
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе" Click="About_Click"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>-->
+    
+<Window x:Class="WpfApp1.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Администрирование" Height="400" Width="600">
+    <Grid Margin="10">
+            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Верхнее меню -->
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="Пользователи">
+                <MenuItem Header="Смена пароля" Click="ChangePasswordButton_Click"/>
+                <MenuItem Header="Новый пользователь" Click="AddUserButton_Click"/>
+                <!-- Разделитель -->
+                <MenuItem Header="Выход" Click="ExitButton_Click"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе" Click="About_Click"/>
+            </MenuItem>
+        </Menu>
+        <!-- Таблица пользователей -->
+        <DataGrid Grid.Row="1" x:Name="UsersDataGrid" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя пользователя" Binding="{Binding Username}"/>
+                <DataGridCheckBoxColumn Header="Заблокирован" Binding="{Binding IsBlocked}"/>
+                <DataGridCheckBoxColumn Header="Ограничения на пароль" Binding="{Binding HasPasswordRestrictions}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Grid.Row="2" Content="Сохранить изменения" HorizontalAlignment="Right" Width="150" Margin="0,10,0,0" Click="SaveButton_Click"/>
+    </Grid>
+</Window>
+
